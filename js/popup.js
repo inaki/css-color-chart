@@ -2,8 +2,10 @@ var $tiles = $('#color-tiles');
 var $tabs = $('.tabs');
 var $tabContainer = $('.tabs-container');
 var tilesContainerStyle = 'display: flex; flex-wrap: wrap; justify-content: center;';
+// clipboard instanciation with the class 'btn' which is on every tile
 var clipboard = new Clipboard('.btn');
 
+// implementing the right contrast in the name of the tiles
 function getContrastYIQ(hexcolor){
   var hex = hexcolor.slice(1, hexcolor.length);
 	var r = parseInt(hex.substr(0,2),16);
@@ -13,6 +15,7 @@ function getContrastYIQ(hexcolor){
 	return (yiq >= 200) ? 'black' : 'white';
 }
 
+// iterating through the colors object and appending the color tiles to the tool
 $.each(colors, function(index, value){
   var tab = '<li class="tab-link ' + value.id + '-tab" data-tab="' + value.id + '">' + value.title + '</li>';
   var tabContent = '<div id="' + value.id + '" class="tab-content"></div>';
@@ -29,6 +32,7 @@ $.each(colors, function(index, value){
   });
 });
 
+// adding the current class to the tab link and the tiles group to be showed by clicking
 $('#pinks').addClass('current');
 $('.pinks-tab').addClass('current');
 
@@ -45,11 +49,3 @@ $('ul.tabs li').click(function(){
 $(".tabs-container").organicTabs({
     "speed": 200
 });
-
-function copyColor() {
-  chrome.tabs.executeScript({
-    file: 'copycolor.js'
-  });
-}
-
-$('.btn').on('click', copyColor);
