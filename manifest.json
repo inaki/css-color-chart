@@ -1,0 +1,34 @@
+{
+  "manifest_version": 2,
+
+  "name": "CSS Color Chart",
+  "description": "Tool that references all the css color that can be call by name, in rainbow order.",
+  "version": "1.0",
+  "omnibox": { "keyword" : "yeah" },
+  "icons": {
+    "64": "tile.64.png",
+    "128": "tile.128.png"
+  },
+
+  "permissions": [
+    "tabs", "<all_urls>"
+  ],
+
+  "browser_action": {
+    "default_icon": "tile.32.png",
+    "default_title": "CSS Color Chart",
+    "default_popup": "popup.html"
+  },
+
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "chrome_url_overrides" : {
+        "newtab": "newtab/color-story.html"
+  },
+  "content_scripts": [{
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content.js"]
+  }]
+}

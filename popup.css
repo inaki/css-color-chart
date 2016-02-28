@@ -1,0 +1,89 @@
+@import url(http://fonts.googleapis.com/css?family=Karla:400,400italic,700,700italic);
+
+body {
+  font-family: 'Karla', sans-serif;
+  width: 410px;
+  height: 100%;
+  padding: 0px;
+}
+.tabs-container{
+  margin: 0px;
+  background-color: white;
+  width: 410px;
+  padding-bottom: 200px;
+}
+.tabs-container h2 {
+  padding: 9px 0px 0px 9px;
+  margin: 0px 0px 5px 0px;
+}
+ul.tabs{
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+ul.tabs li{
+  font-size: 0.92rem;
+  background: none;
+  color: #222;
+  display: inline-block;
+  margin: 5px 10px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  -webkit-transition: border-bottom 0.5s, -webkit-transform 0.5s; /* Safari */
+    transition: border-bottom 0.5s, transform 0.5s;
+}
+
+ul.tabs li.current{
+  color: #222;
+}
+ul.tabs .pinks-tab.current {  border-bottom: 2px solid lightpink;}
+ul.tabs .oranges-tab.current {  border-bottom: 2px solid darkorange;}
+ul.tabs .greens-tab.current {  border-bottom: 2px solid mediumaquamarine;}
+ul.tabs .blues-tab.current {  border-bottom: 2px solid cornflowerblue;}
+ul.tabs .purples-tab.current {  border-bottom: 2px solid mediumpurple;}
+ul.tabs .grays-tab.current {  border-bottom: 2px solid lightslategray;}
+ul.tabs .whites-tab.current {  border-bottom: 2px solid lavenderblush;}
+ul.tabs .browns-tab.current {  border-bottom: 2px solid chocolate;}
+
+.tab-content{
+  background: white;
+  width: 380px;
+  margin: auto;
+  display: none;
+  position: relative;
+  float: left;
+  background: white;
+  padding: 15px;
+}
+
+.tab-content.current{
+  display: inherit;
+}
+.tile {
+  position: relative;
+  color: transparent;
+  float: left;
+  width: 60px;
+  height: 60px;
+  border: 2px solid white;
+  border-radius: 50%;
+  box-shadow: 1px 1px 5px gray;
+  margin: 5px;
+  -webkit-transition: all 0.5s, -webkit-transform 0.5s; /* Safari */
+    transition: all 0.5s, transform 0.5s;
+}
+.white, .black {
+  -webkit-transition: color 0.7s, -webkit-transform 0.7s; /* Safari */
+    transition: color 0.7s, transform 0.7s;
+}
+
+.tile:hover .white{color: white;}
+.tile:hover .black{color: dimgray;}
+
+.name {
+  text-align: center;
+  width: 50px;
+  padding: 25px 5px;
+  font-size: 0.6rem;
+  word-break: break-all;
+}
