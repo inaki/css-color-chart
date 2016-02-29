@@ -3,7 +3,19 @@ var $tabs = $('.tabs');
 var $tabContainer = $('.tabs-container');
 var tilesContainerStyle = 'display: flex; flex-wrap: wrap; justify-content: center;';
 // clipboard instanciation with the class 'btn' which is on every tile
-var clipboard = new Clipboard('.btn');
+var clipboard = new Clipboard('.btn', {
+    target: function(trigger) {
+        $('.name').hide();
+        $('.copied').show();
+
+        setTimeout(function () {
+          $('.copied').hide();
+          $('.name').show();
+        }, 1500);
+
+        console.log(trigger);
+    }
+});
 
 // implementing the right contrast in the name of the tiles
 function getContrastYIQ(hexcolor){
@@ -28,7 +40,8 @@ $.each(colors, function(index, value){
   $.each(value.colorArray, function(i, v){
     var textColor = getContrastYIQ(v[1]);
     $('#' + value.id + '')
-      .append('<div class="tile btn" data-clipboard-text="' + v[0].toLowerCase() + '" style="background-color:' + v[0] + '"><div class="name ' + textColor + '">' + v[0] + '</div></div>');
+      .append('<div class="tile btn" data-clipboard-text="' + v[0].toLowerCase() + '" style="background-color:' + v[0] + '"><div class="name ' + textColor + '">' + v[0] + '</div><div class="copied ' + textColor + '">copied!</div></div>');
+      $('.copied').hide();
   });
 });
 
@@ -44,8 +57,4 @@ $('ul.tabs li').click(function(){
 
 	$(this).addClass('current');
 	$("#"+tab_id).addClass('current');
-});
-
-$(".tabs-container").organicTabs({
-    "speed": 200
 });

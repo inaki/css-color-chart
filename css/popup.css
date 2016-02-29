@@ -80,10 +80,35 @@ ul.tabs .browns-tab.current {  border-bottom: 2px solid chocolate;}
 .tile:hover .white{color: white;}
 .tile:hover .black{color: dimgray;}
 
-.name {
+.name, .copied {
   text-align: center;
   width: 50px;
   padding: 25px 5px;
   font-size: 0.6rem;
   word-break: break-all;
+  animation-name: reset, fade-in;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+}
+
+@keyframes reset {
+0% {
+    opacity: 0;
+}
+100% {
+    opacity: 0;
+}
+}
+
+@keyframes fade-in {
+0% {
+    opacity: 0;
+}
+60% {
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
 }
